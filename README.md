@@ -26,6 +26,12 @@ avdmanager create avd -n android13desktop -k 'system-images;android-33;android-d
 
 When asked if you would like a custom hardware profile, enter no
 
+## Running the emulator
+Running the emulator is a single command, be sure to substitute the name if you did so when creating thw avd
+```
+emulator @android13desktop
+```
+
 ## Installing Beat Saber
 Before installing Beat Saber we first need to install Horizon, otherwise the game will immediately crash.
 You will need to install an older version of Horizon as recent ones will also crash.
