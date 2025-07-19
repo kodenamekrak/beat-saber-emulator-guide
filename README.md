@@ -78,6 +78,7 @@ You can either use ADB or the `Restart App` button in QuestPatcher to restart th
 
 To use FPFC you will need to install [StreamMod](https://github.com/Metalit/StreamMod) and run the client.
 ```
+cd client
 npm i
 npm run dev
 ```
