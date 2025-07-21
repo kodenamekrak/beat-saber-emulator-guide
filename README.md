@@ -29,8 +29,10 @@ When asked if you would like a custom hardware profile, enter no
 ## Running the emulator
 Running the emulator is a single command, be sure to substitute the name if you did so when creating thw avd
 ```
-emulator @android13desktop
+emulator @android13desktop -selinux permissive -feature QtRawKeyboardInput
 ```
+- SELinux must be disabled otherwise the modloader will be denied permission to execute
+- `QtRawInputKeyboard` makes the input smooth like on PC
 
 ## Installing Beat Saber
 Before installing Beat Saber we first need to install Horizon, otherwise the game will immediately crash.
@@ -72,12 +74,6 @@ Now you can patch your game with questpatcher and everything should work as expe
 Now you can install mods as normal, just be sure to install AndroidHelper, and you will also need to build custom types with [the following hooks](https://github.com/QuestPackageManager/Il2CppQuestTypePatching/blob/57ce4d6a8e0c7a1b847483d0a90f18196e72deb2/src/register.cpp#L658-L660) commented out as they will falsely trigger on emulators. Make sure you edit the version in qpm.json beforehand to the currently used custom types version to ensure it doesnt get overwritten as an update.
 
 ## Running the game
-Before launching the game you will need to disable SELinux (this will need to be done every boot unless you edit the boot image to disable it via kernel parameters)
-```
-adb root
-adb shell setenforce 0
-```
-
 You can either use ADB or the `Restart App` button in QuestPatcher to restart the game
 
 ## FPFC
