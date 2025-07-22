@@ -23,6 +23,7 @@ Run the following command to create the emulator, you can change the name if you
 ```
 avdmanager create avd -n android13desktop -k 'system-images;android-33;android-desktop;x86_64'
 ```
+- By default avds will be created in `~/.android/avd`, if you would like to move this elsewhere, say to an external drive, set the `ANDROID_AVD_HOME` environment variable to the containing folder.
 
 When asked if you would like a custom hardware profile, enter no
 
@@ -78,28 +79,9 @@ You can either use ADB or the `Restart App` button in QuestPatcher to restart th
 
 ## FPFC
 
-To use FPFC you will need to install [StreamMod](https://github.com/Metalit/StreamMod) and run the client.
-```
-cd client
-npm i
-npm run dev
-```
-- Currently you cannot build the qmod unless you already have websocketpp installed, so you will need a prebuilt qmod.
+You can use my [FPFC Mod](https://github.com/kodenamekrak/Emulator-FPFC/) in order to control the game.
 
-In order to actually connect to the mod we need to forward ports on the device (This needs to be done each boot)
-```
-telnet localhost 5554
-```
-- If `5554` does not work, use `adb devices` to find which port your emulator is running on
-
-Once in the networking shell you will need to find the `.emulator_console_auth_token` file in your user folder and copy it's contents, then enter the following command to authenticate
-```
-auth <contents>
-```
-Finally simply forward the port used by the mod
-```
-redir add tcp:3308:3308
-```
-
-Now open the site created by the client and in the top right click on the wifi icon and change the IP address to `localhost` and hit connect. Click the settings icon and enable FPFC. If your game is running you should be able to control the game the same way as the PC FPFC.
-- If your browser has issues with hardware acceleration you can try change `hardwareAcceleration` to `prefer-software` in `decoder_worker.ts`
+First you will need to enable the keyboard and change the resolution of the emulator.
+Open `~/.android/avd/android13desktop/config.ini`
+- Set `hw.keyboard` to `yes`
+- set `hw.lcd.height` and `hw.lcd.width`
