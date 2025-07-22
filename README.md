@@ -85,3 +85,4 @@ First you will need to enable the keyboard and change the resolution of the emul
 Open `~/.android/avd/android13desktop/config.ini`
 - Set `hw.keyboard` to `yes`
 - set `hw.lcd.height` and `hw.lcd.width`
+You can find a settings menu to change the camera's resolution and FOV
